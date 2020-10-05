@@ -1,0 +1,20 @@
+NOTES:
+
+Cecil Walker
+Charles Walker
+Ann Taylor
+Matthew Taylor
+Dale Campbell-Savours
+Menzies Campbell
+Allen Stewart
+Andy Stewart
+Alan Williams (Both of them)
+Madam Speaker(s)
+Anyone named hamilton
+Gareth Thomas
+1983-02-13 is actually 1984-02-13
+1984-02-13
+
+1983
+
+Can only join by id, hansard_id, speaker_id, name - CAN'T USE DATE!

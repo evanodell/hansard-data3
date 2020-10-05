@@ -1,0 +1,12 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+*debate-single-years/
+*data/
+*debates/
+*completed-matches/
+*old-R/
+*dict/
+*release/
+unidentified-speakers2.csv
