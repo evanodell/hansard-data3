@@ -361,7 +361,7 @@ match10s <- match10s %>% left_join(members %>% select(mnis_id, display_as))
 
 speaker_vector <- c("Speaker|chairman|Chaiman")
 
-y_list <- list.files("debate-single-years")
+y_list <- as.numeric(gsub(".rds", "", list.files("debate-single-years")))
 
 names_df <- list()
 
@@ -373,7 +373,7 @@ for (i in y_list) {
   
   year <- read_rds(paste0("debate-single-years/", i))
   
-  if (i=="1979.rds") {
+  if (i==1979) {
     year <- year %>% filter(date >= as.Date("1979-05-03"))
   }
   
@@ -389,8 +389,7 @@ for (i in y_list) {
       )
     )
   
-  
-  if (i=="1983.rds") {
+  if (i==1983) {
     ## incorrect year is listed in Hansard
     year <- year %>% 
       mutate(
@@ -525,24 +524,24 @@ for (i in y_list) {
   
 # matching files ----------------------------------------------------------
 
-  if (i=="1979.rds") {
+  if (i==1979) {
     
     year <- year %>% 
       left_join(match1979, 
                 by = c("hansard_membership_id", "speakerid", "person_id"))
     
-  } else if (i %in% y_list[2:11]) {
+  } else if (i >= 1980 & i < 1990 ) {
     year <- year %>%
       left_join(match80s, by = "hansard_membership_id")
-  } else if (i %in% y_list[12:21]) {
+  } else if (i >= 1990 & i < 2000 )  {
     year <- year %>%
       left_join(match90s,
                 by = c("hansard_membership_id", "speakerid", "person_id"))
-  } else if (i %in% y_list[22:31]) {
+  } else if (i >= 2000 & i < 2010 ) {
     year <- year %>%
       left_join(match00s,
                 by = c("hansard_membership_id", "speakerid", "person_id"))
-  } else if (i %in% y_list[32:36]) { ## doesn't include 2019 or 2020
+  } else if (i >= 2010 & i < 2015 ) { ## doesn't include 2019 or 2020
     year <- year %>%
       left_join(match10s, 
                 by = c("hansard_membership_id", "speakerid", "person_id"))
