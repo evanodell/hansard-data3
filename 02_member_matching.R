@@ -546,7 +546,7 @@ for (i in y_list) {
     year <- year %>%
       left_join(match10s, 
                 by = c("hansard_membership_id", "speakerid", "person_id"))
-  } else if (i %in% y_list[37:42]) {
+  } else { #if (i %in% y_list[37:42]) {
     year <- year %>%
       left_join(members %>%
                   select(mnis_id, display_as),
@@ -752,7 +752,7 @@ for (i in y_list) {
   ## need to check the status of this 
   save_name <- paste0("debate-single-years/", i)
   
-  write_rds(year, path = save_name)
+  write_rds(year, file = save_name)
   
   pb$tick()
   

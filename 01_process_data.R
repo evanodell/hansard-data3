@@ -7,7 +7,7 @@ library(tidyr)
 
 # Initial processing ------------------------------------------------------
 
-for (j in c(1979:2020)) {
+for (j in c(2020:2020)) {
   
   message("Processing ", j)
   
@@ -167,7 +167,7 @@ for (j in c(1979:2020)) {
   
   save_name <- paste0("debate-single-years/", j, ".rds")
   
-  write_rds(x, path = save_name)
+  write_rds(x, file = save_name)
   
 }
 rm(list=ls())
